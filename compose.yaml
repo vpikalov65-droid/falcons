@@ -1,0 +1,17 @@
+name: falcons
+
+services:
+  falcons:
+    build: .
+    image: falcons:local
+    container_name: falcons
+    restart: unless-stopped
+    mem_limit: 32m
+    memswap_limit: 32m
+    ports:
+      - "127.0.0.1:8088:80"
+    logging:
+      driver: json-file
+      options:
+        max-size: "2m"
+        max-file: "2"
